@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb506206-7951-4f21-af30-33a20423d1cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/milano_temps.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resource/pg202.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resource/pg203.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bigdata/mapreduce/mean/Mean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bigdata/mapreduce/wordcount/IntSumReducer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bigdata/mapreduce/wordcount/TokenizerMapper.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/result.txt/._SUCCESS.crc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/result.txt/.part-r-00000.crc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/result.txt/_SUCCESS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/result.txt/part-r-00000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/bigdata/mapreduce/WordCount$IntSumReducer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/bigdata/mapreduce/WordCount$TokenizerMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/bigdata/mapreduce/WordCount.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/pg201.txt" afterPath="$PROJECT_DIR$/resource/pg201.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/bigdata/mapreduce/WordCount.java" afterPath="$PROJECT_DIR$/src/main/java/bigdata/mapreduce/wordcount/WordCount.java" />
+    <list default="true" id="cb506206-7951-4f21-af30-33a20423d1cd" name="Default" comment="added part of calculating mean of MR&#10;verified the quantity of Mapper">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/._SUCCESS.crc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/.part-r-00000.crc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/_SUCCESS" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/part-r-00000" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,8 +34,8 @@
       <file leaf-file-name="WordCount.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bigdata/mapreduce/wordcount/WordCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="649">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="683">
+              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -676,7 +666,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586183651826</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added part of calculating mean of MR&#10;verified the quantity of Mapper">
+      <created>1586352766300</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586352766300</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -726,7 +723,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created BigDataPrograms Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="created BigDataPrograms Project" />
+    <MESSAGE value="added part of calculating mean of MR&#10;verified the quantity of Mapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="added part of calculating mean of MR&#10;verified the quantity of Mapper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -917,8 +915,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bigdata/mapreduce/wordcount/WordCount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="683">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
