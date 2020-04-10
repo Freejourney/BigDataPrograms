@@ -39,8 +39,8 @@ public class WordCount {
         job.setOutputValueClass(IntWritable.class);
 
         // 6 当数据集很小且文件只有一个时只会有一个Mapper(), 现在会有三个Mapper，因为有三个小文件
-        FileInputFormat.addInputPath(job, new Path("resource"));
-        FileOutputFormat.setOutputPath(job, new Path("result"));
+        FileInputFormat.addInputPath(job, new Path("resource/milano_temps.csv"));
+        FileOutputFormat.setOutputPath(job, new Path("mapreducewordcount_result"));
 
         // 7
         job.waitForCompletion(true);

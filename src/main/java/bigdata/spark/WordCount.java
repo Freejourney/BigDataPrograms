@@ -18,36 +18,71 @@ import java.util.Iterator;
 public class WordCount {
 
     public static void main(String[] args) {
-        SparkConf conf = new SparkConf().setAppName("WordCount").setMaster("local[*]");
+//        SparkConf conf = new SparkConf()
+//                .setAppName("WordCount")
+//                .setMaster("local[*]");
+//
+//        JavaSparkContext jsc = new JavaSparkContext(conf);
+//
+//        // input files
+//        JavaRDD<String> lines = jsc.textFile("resource/testwords/*");
+//
+//        JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
+//            @Override
+//            public Iterator<String> call(String line) throws Exception {
+//                return Arrays.asList(line.split(" ")).iterator();
+//            }
+//        });
+//
+//        JavaPairRDD<String, Integer> wordAndOne = words.mapToPair(new PairFunction<String, String, Integer>() {
+//            @Override
+//            public Tuple2<String, Integer> call(String word) throws Exception {
+//                return new Tuple2<>(word, 1);
+//            }
+//        });
+//
+//        JavaPairRDD<String, Integer> reducedWord = wordAndOne.reduceByKey(new Function2<Integer, Integer, Integer>() {
+//            @Override
+//            public Integer call(Integer integer, Integer integer2) throws Exception {
+//                return integer + integer2;
+//            }
+//        });
+//
+//        // output directory
+//        reducedWord.saveAsTextFile("sparkwordcount_result");
+//
+//        jsc.stop();
+
+        SparkConf conf = new SparkConf()
+                .setMaster("local[*]")
+                .setAppName("WordCount");
 
         JavaSparkContext jsc = new JavaSparkContext(conf);
 
-        // input files
-        JavaRDD<String> lines = jsc.textFile("resource/testwords/*");
+        JavaRDD<String> lines = jsc.textFile("resource");
 
         JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
             @Override
-            public Iterator<String> call(String line) throws Exception {
-                return Arrays.asList(line.split(" ")).iterator();
+            public Iterator<String> call(String s) throws Exception {
+                return Arrays.asList(s.split(" ")).iterator();
             }
         });
 
         JavaPairRDD<String, Integer> wordAndOne = words.mapToPair(new PairFunction<String, String, Integer>() {
             @Override
-            public Tuple2<String, Integer> call(String word) throws Exception {
-                return new Tuple2<>(word, 1);
+            public Tuple2<String, Integer> call(String s) throws Exception {
+                return new Tuple2<>(s, 1);
             }
         });
 
-        JavaPairRDD<String, Integer> reducedWord = wordAndOne.reduceByKey(new Function2<Integer, Integer, Integer>() {
+        JavaPairRDD<String, Integer> reduced = wordAndOne.reduceByKey(new Function2<Integer, Integer, Integer>() {
             @Override
             public Integer call(Integer integer, Integer integer2) throws Exception {
                 return integer + integer2;
             }
         });
 
-        // output directory
-        reducedWord.saveAsTextFile("sparkwordcount_result");
+        reduced.saveAsTextFile("result");
 
         jsc.stop();
     }
