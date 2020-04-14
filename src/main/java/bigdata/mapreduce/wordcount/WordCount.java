@@ -25,7 +25,7 @@ public class WordCount {
 
         // 2
         Job job = Job.getInstance(conf);
-        job.setJobName("WordCount");
+        job.setJobName("WordCount_I");
 
         // 3
         job.setJarByClass(WordCount.class);

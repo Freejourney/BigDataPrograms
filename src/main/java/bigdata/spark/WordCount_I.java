@@ -15,11 +15,11 @@ import java.util.Iterator;
 /**
  * Created by ua28 on 4/9/20.
  */
-public class WordCount {
+public class WordCount_I {
 
     public static void main(String[] args) {
 //        SparkConf conf = new SparkConf()
-//                .setAppName("WordCount")
+//                .setAppName("WordCount_I")
 //                .setMaster("local[*]");
 //
 //        JavaSparkContext jsc = new JavaSparkContext(conf);
@@ -55,7 +55,7 @@ public class WordCount {
 
         SparkConf conf = new SparkConf()
                 .setMaster("local[*]")
-                .setAppName("WordCount");
+                .setAppName("WordCount_I");
 
         JavaSparkContext jsc = new JavaSparkContext(conf);
 
