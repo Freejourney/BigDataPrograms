@@ -1,11 +1,14 @@
 package EvolutionaryAlgorithmOnHadoop.directSparkGAKp;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.PairFunction;
+import org.apache.spark.api.java.function.VoidFunction;
 import scala.Tuple2;
+import scala.tools.nsc.settings.Final;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -107,15 +110,29 @@ public class GeneticAlgorithmSparkKP {
 
         JavaRDD<Partical> particles = createParticalSFromFile(jsc, iteration-1);
 
+//        JavaRDD<Partical> results = null;
+        List<Partical> percollect = particles.collect();
+
+        double fit = 0;
+        int index = 0;
+        for (int j = 0; j < percollect.size(); j++) {
+            if (percollect.get(j).getFitness() > fit) {
+                fit = percollect.get(j).getFitness();
+                index = j;
+            }
+        }
+        final Partical gbestPartical = percollect.get(index);
+
         for (int i = 0; i < iteration; i++) {
 
 //            JavaRDD<Partical> particles = createParticalSFromFile(jsc, iteration-1);
+//            List<Partical> collect = particles.collect();
 
 
             JavaRDD<Partical> volocityUpdatedParticals = particles.map(new Function<Partical, Partical>() {
                 @Override
                 public Partical call(Partical partical) throws Exception {
-                    partical.updateVelocity();
+                    partical.updateVelocity(gbestPartical);
                     return partical;
                 }
             });
@@ -136,32 +153,58 @@ public class GeneticAlgorithmSparkKP {
                         partical.setPbestfitness(partical.getFitness());
                         partical.updatePbest();
                     }
-                    if (partical.getPbestfitness() > partical.getGbestfitness()) {
-                        partical.setGbestfitness(partical.getPbestfitness());
-                        partical.setPosition(partical.getPbest());
+                    if (partical.getPbestfitness() > gbestPartical.getFitness()) {
+                        gbestPartical.setFitness(partical.getPbestfitness());
+                        gbestPartical.setPosition(partical.getPosition());
                     }
                     return partical;
                 }
             });
 
 //            pbestAndgbestUpdatedParticals.cache();
-//            pbestAndgbestUpdatedParticals.saveAsTextFile(iteration+"_particals_result");
+//            pbestAndgbestUpdatedParticals.saveAsTextFile("pso"+i);
 //            pbestAndgbestUpdatedParticals.cache();
             particles = pbestAndgbestUpdatedParticals;
+//            List<Partical> percollect = particles.collect();
+
+
+            List<Partical> collect = particles.collect();
+            for (Partical partical : collect) {
+                System.out.print(partical.getFitness());
+            }
+            System.out.println();
+
         }
 
-        List<Partical> particalList = particles.collect();
+        particles.saveAsTextFile("pso_final_result");
+
+//        JavaPairRDD<Double, Partical> mapped = particles.mapToPair(new PairFunction<Partical, Double, Partical>() {
+//            @Override
+//            public Tuple2<Double, Partical> call(Partical partical) throws Exception {
+//                return new Tuple2<Double, Partical>(partical.getFitness(), partical);
+//            }
+//        });
+//
+//        JavaPairRDD<Double, Partical> sorted = mapped.sortByKey(false);
+//
+//        List<Partical> values = sorted.values().take(10);
+//
+//        for (Partical partical : values) {
+//            System.out.println("fitness : " + partical.getFitness());
+//        }
 
         jsc.stop();
     }
 
     private static JavaRDD<Partical> createParticalSFromFile(JavaSparkContext jsc, int i) {
-        JavaRDD<String> particalsString = jsc.textFile(-1+"_particals_result");
+        JavaRDD<String> particalsString = jsc.textFile("-1_particals_result");
+
+        System.out.println(particalsString.take(1));
 
         JavaRDD<Partical> particals = particalsString.map(new Function<String, Partical>() {
             @Override
             public Partical call(String s) throws Exception {
-                String[] fitness_position_velocity = s.split("|");
+                String[] fitness_position_velocity = s.split("\\|");
                 double fitness = Double.valueOf(fitness_position_velocity[0]);
                 double[] positions = AnalyzePosition(fitness_position_velocity[1]);
                 double[] velocity = AnalyzeVelocity(fitness_position_velocity[2]);

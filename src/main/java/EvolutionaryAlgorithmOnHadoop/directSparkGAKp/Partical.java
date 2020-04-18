@@ -14,13 +14,15 @@ public class Partical implements Serializable {
 
     private static final long serialVersionUID = -160767830542290296L;
 
-    private double[] velocity;
-    private double[] position;
+    private int size = 10;
+
+    private double[] velocity = new double[10];
+    private double[] position = new double[10];
     private double fitness;
-    private double[] pbest;
+    private double[] pbest = new double[10];
     private double pbestfitness;
 
-    private double[] gbest;
+    private double[] gbest = new double[10];
     private double gbestfitness;
 
     private int c1 = 2, c2 = 2;
@@ -81,26 +83,10 @@ public class Partical implements Serializable {
         this.pbestfitness = pbestfitness;
     }
 
-    public double[] getGbest() {
-        return gbest;
-    }
-
-    public void setGbest(double[] gbest) {
-        this.gbest = gbest;
-    }
-
-    public double getGbestfitness() {
-        return gbestfitness;
-    }
-
-    public void setGbestfitness(double gbestfitness) {
-        this.gbestfitness = gbestfitness;
-    }
-
-    public void updateVelocity() {
+    public void updateVelocity(Partical gbestPartical) {
         for (int i = 0; i < this.velocity.length; i++) {
             this.velocity[i] = w*this.velocity[i] + c1*new Random().nextDouble()*(pbest[i]-position[i])
-                    + c2*new Random().nextDouble()*(gbest[i]-position[i]);
+                    + c2*new Random().nextDouble()*(gbestPartical.getPosition()[i]-position[i]);
         }
     }
 
@@ -110,12 +96,12 @@ public class Partical implements Serializable {
         }
     }
 
-    public double calculateFitness() {
+    public void calculateFitness() {
         double fitness = 0;
         for (int i = 0; i < position.length; i++) {
             fitness += position[i];
         }
-        return fitness;
+        this.fitness = fitness;
     }
 
     public void updatePbest() {
@@ -123,4 +109,13 @@ public class Partical implements Serializable {
             pbest[i] = position[i];
         }
     }
+
+    @Override
+    public String toString() {
+        String str = getFitness()+"\t";
+        for (int i = 0; i < size; i++) {
+            str += position[i] + ",";
+        }
+        return str;
+    };
 }
