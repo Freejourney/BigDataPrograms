@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb506206-7951-4f21-af30-33a20423d1cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/sample_fpgrowth.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bigdata/spark/Spark_FPGrowth.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_graphx_2_11_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_mllib_2_11_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_mllib_local_2_11_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_streaming_2_11_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_tags_2_11_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jpmml_pmml_model_1_2_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jpmml_pmml_schema_1_2_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_scalanlp_breeze_2_11_0_13_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_scalanlp_breeze_macros_2_11_0_13_1.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BigDataPrograms.iml" afterPath="$PROJECT_DIR$/BigDataPrograms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/EvolutionaryAlgorithmOnHadoop/onemax/elephant56/examples/onemax/SequentialApp.java" afterPath="$PROJECT_DIR$/src/main/java/EvolutionaryAlgorithmOnHadoop/onemax/elephant56/examples/onemax/SequentialApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/EvolutionaryAlgorithmOnHadoop/onemax/elephant56/user/common/BitStringIndividual.java" afterPath="$PROJECT_DIR$/src/main/java/EvolutionaryAlgorithmOnHadoop/onemax/elephant56/user/common/BitStringIndividual.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/EvolutionaryAlgorithmOnHadoop/onemax/elephant56/user/operators/BitStringMutation.java" afterPath="$PROJECT_DIR$/src/main/java/EvolutionaryAlgorithmOnHadoop/onemax/elephant56/user/operators/BitStringMutation.java" />
@@ -68,8 +55,8 @@
       <file leaf-file-name="Spark_FPGrowth.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bigdata/spark/Spark_FPGrowth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="445">
+              <caret line="32" column="83" lean-forward="true" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -953,7 +940,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587217370409</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="implemented using spark mllib fpgrowth;&#10;Attention: Current combination of versions of jars are important, any change may bring errors of program running">
+      <created>1587460227373</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587460227373</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1020,7 +1014,8 @@
     <MESSAGE value="added using genetic algorithm on Hadoop platform by using elephant56" />
     <MESSAGE value="implemented spark PSO, problems with gbest needs to be solved" />
     <MESSAGE value="repaired bugs of SPark PSO and it can work well now" />
-    <option name="LAST_COMMIT_MESSAGE" value="repaired bugs of SPark PSO and it can work well now" />
+    <MESSAGE value="implemented using spark mllib fpgrowth;&#10;Attention: Current combination of versions of jars are important, any change may bring errors of program running" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented using spark mllib fpgrowth;&#10;Attention: Current combination of versions of jars are important, any change may bring errors of program running" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1194,6 +1189,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1201,6 +1199,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1208,6 +1209,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1215,6 +1219,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1222,6 +1229,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#302#303#0" expanded="false" />
+            <element signature="e#358#359#0" expanded="false" />
+            <element signature="e#828#829#0" expanded="false" />
+            <element signature="e#871#872#0" expanded="false" />
+            <element signature="e#896#897#0" expanded="false" />
+            <element signature="e#935#936#0" expanded="false" />
+            <element signature="e#1343#1344#0" expanded="false" />
+            <element signature="e#1410#1411#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1236,6 +1254,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="33" column="53" lean-forward="false" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1386,8 +1407,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bigdata/spark/Spark_FPGrowth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="445">
+          <caret line="32" column="83" lean-forward="true" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
